@@ -11,3 +11,5 @@ andre,123456
 Sara,123
 nicolas,123
 pedro,pedro@123
+leo,123
+alex,123

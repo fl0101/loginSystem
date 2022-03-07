@@ -9,10 +9,6 @@ from tkinter import ttk
 from tkinter.messagebox import showinfo
 
 
-def register():
-    exec(open("Register.py").read())
-
-
 def login():
     a = search_user(var1.get(), var2.get())
     if a is True:
@@ -28,6 +24,9 @@ def login():
 
 
 def search_user(name, passwd):
+
+    """ Verifica se o usuario e senha existe no arquivo users.txt e retorna true caso exista"""
+
     to_check = []
 
     try:
@@ -48,33 +47,34 @@ def search_user(name, passwd):
 
 window = Tk()
 
-# definindo o tamanho da janela
 window.title("Login")
 window.geometry("400x300+450+200")
 window["bg"] = "white"
 
+# Label de título
 lb = Label(window, text="Login", bg="white", font=("Arial Bold", 20))
 lb.place(x=160, y=15)
 
+# Label login
 lb1 = Label(window, text="Username", bg="white", fg="gray", font=("Arial Bold", 15))
 lb1.place(x=50, y=70)
 
-# input Box
+# Entry do login
 var1 = StringVar()
 txt1 = Entry(window, width=20, textvariable=var1)
 txt1.place(x=170, y=73)
 
+# Label password
 lb2 = Label(window, text="Password", bg="white", fg="gray", font=("Arial Bold", 15))
 lb2.place(x=50, y=120)
 
+# Entry do password
 var2 = StringVar()
 txt2 = Entry(window, width=20, textvariable=var2, show="*")
 txt2.place(x=170, y=123)
 
+# Button para logar
 btn1 = ttk.Button(window, text="Login", width=12, command=login)
-btn1.place(x=80, y=175)
-
-btn2 = ttk.Button(window, text="New user?", width=12, command=register)
-btn2.place(x=200, y=175)
+btn1.place(x=140, y=175)
 
 window.mainloop()
